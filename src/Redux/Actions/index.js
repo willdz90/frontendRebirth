@@ -10,7 +10,7 @@ import {
   NO_FILTER_PETS,
 } from "./actionTypes";
 
-const SERVER = "https://rebirth-app-backend.herokuapp.com/";
+const SERVER = "https://rebirth-app-backend.herokuapp.com";
 
 export function loginUser(credentials){
   return async function(dispatch) {
