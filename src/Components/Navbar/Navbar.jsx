@@ -35,13 +35,14 @@ function Navbar() {
       if (willDelete) {
         swal("See you around!", {
           icon: "success",
-        })
-      } 
-      navigate("/home")
+        }).then( () => {
+            navigate("/home")
+            localStorage.clear();
+            localStorage.setItem("theme", theme)
+          }
+        )
+      }
     });
-    localStorage.clear();
-    localStorage.setItem("theme", theme)
-
   }
 
   if(user !== null ) userImage = user.googleId ? user.imageUrl : user.userToken.imageUrl;
