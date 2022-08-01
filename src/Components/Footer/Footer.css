@@ -5,11 +5,6 @@ html {
 
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 200px;
-}
-
 .footer {
   bottom: 0;
   width: 100%;
@@ -19,10 +14,6 @@ body {
 
 /* Taller footer on small screens */
 @media (max-width: 567em) {
-
-  body {
-    margin-bottom: 700px;
-  }
 
   .footer {
     height: 500px;
@@ -103,7 +94,7 @@ footer .form-control {
 .row-lists {
   transform: translateY(-170px) translateX(350px);
   height: 200px;
-  width: 100%;
+  width: 35rem;
 
 }
 
