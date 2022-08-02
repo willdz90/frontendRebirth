@@ -38,8 +38,10 @@ footer {
 
 
 .row {
+  display: flex;
   flex: none;
   position: relative;
+  justify-content: center;
 }
 
 .col-md-5 {
