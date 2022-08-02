@@ -101,12 +101,9 @@ function Profile(){
 
     function handleSubmit(e){
         e.preventDefault();
-        console.log(e.target)
         dispatch(updateUser(userInfo.email ? userInfo.email : userInfo.userToken.mail, input))
         // localStorage.clear()
     }
-
-    console.log(input)
 
     return(
         <div class ="fixed-top">

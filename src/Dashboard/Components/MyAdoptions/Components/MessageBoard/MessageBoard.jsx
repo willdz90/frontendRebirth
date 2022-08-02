@@ -20,7 +20,6 @@ export default function MessageBoard({ chatId = 1, userId = 1, userId2 = 2 }) {
         ...conversation,
         { userMsgId: Math.round(Math.random() * 2), msg: "adios" },
       ]);
-      console.log(conversation);
     }, 10000);
 
     return () => clearInterval(chatInterval);

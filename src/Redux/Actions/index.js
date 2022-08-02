@@ -36,7 +36,6 @@ export function getOwnerAdoption(id){
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
       alert("No user found");
     }
   };
@@ -50,7 +49,6 @@ export function getAdopterAdoption(id){
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
       alert("No user found");
     }
   };
@@ -77,7 +75,6 @@ export function postMercadoPago(donacion){
         let data = await axios.post("http://localhost:3001/donations", donacion)
         return dispatch({type : "MERCADO_PAGO", data})
       } catch (error) {
-        console.log('error', error)
       }
   }
 }
@@ -127,7 +124,6 @@ export function postUserGoogle(payload) {
         
       }
     } catch (error) {
-      console.log('error', error)
     }
   };
 }
@@ -137,7 +133,6 @@ export function updateUser(email, payload) {
     try {
       await axios.put(`${SERVER}/user/${email}`, payload);
     } catch (error) {
-      console.log(error)
     }
   }
 }
@@ -151,7 +146,6 @@ export function deleteUser(id) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
       alert("Could not delete user");
     }
   };
@@ -220,7 +214,6 @@ export function getDetails(id) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
       alert("No pet found");
     }
   };
@@ -235,7 +228,6 @@ export function deletePet(id) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
       alert("Could not delete pet");
     }
   };
@@ -250,7 +242,6 @@ export function getLocation() {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
       alert("No location found");
     }
   };
