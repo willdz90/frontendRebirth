@@ -71,10 +71,10 @@ function Navbar() {
         <div className="item">
           <DarkMode />
         </div>
-        <div className="item">
+        {/* <div className="item">
           <span>ES</span>
           <img src={es} alt="vector" className="bandera" />
-        </div>
+        </div> */}
         {
           user!==null ? 
           <a href="/home" onClick={(e) => logOut(e)} className="link-navbar">LOG OUT</a> : 
