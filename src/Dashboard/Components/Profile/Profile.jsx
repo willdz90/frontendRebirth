@@ -108,7 +108,7 @@ function Profile(){
         <div class ="fixed-top">
         <Navbar/>
         <form method ="PUT" onSubmit={(e)=>handleSubmit(e)}>
-        <div class="row config">
+        <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                 <img class="rounded-circle mt-5" width="150px" src={userInfo.imageUrl? userInfo.imageUrl : userInfo.userToken.imageUrl}/>
