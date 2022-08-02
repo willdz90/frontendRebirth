@@ -37,7 +37,6 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/register" element={<Register />} />
-
         <Route path ='/create' element={<AddNew />} />
         <Route path ='/donations' element={<DonationsPets />} />
         <Route path ='/donations/:id' element={<DonationsPets />} />
@@ -45,8 +44,6 @@ function App() {
         <Route path="/favorites" element={<DashFavorites/>} />
         <Route path='/request' element={<AdoptionRequest/>} />
         <Route path="/sw" element={<SW2/>} />
-        
-
         {/*
 
           <Route path = '*' element = {<NotFound/>}/> */}
