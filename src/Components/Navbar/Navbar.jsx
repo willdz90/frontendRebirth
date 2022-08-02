@@ -22,9 +22,9 @@ function Navbar() {
 
   let theme = localStorage.getItem("theme")
   
-  const logOut = (e) => {
+  const logOut = async (e) => {
     e.preventDefault();
-    swal({
+    await swal({
       title: "You are about to logout",
       text: "Are you sure wanna go out?",
       icon: "warning",
