@@ -1,12 +1,11 @@
 import "./Footer.css";
 import logo from "../../Assets/logo.png";
 import socials from "../../Assets/Social.png";
-import { NavLink, useResolvedPath } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Footer() {
 
-  const userJson = localStorage.getItem("user");
-  const user = JSON.parse(userJson);
+  const user = localStorage.getItem("user");
 
   return (
     <footer className="body">
@@ -55,10 +54,10 @@ export default function Footer() {
                       <a href={user!==null ? "/favorites" : "/login"}>My Favorites</a>
                     </li>
                     <li className="nav-item">
-                      <a href=" ">My account</a>
+                      <NavLink to={user!==null ? "/profile" : "/login"}>My account</NavLink>
                     </li>
                     <li className="nav-item">
-                      <NavLink to={user!==null ? "/profile" : "/login"}>Terms & Conditions</NavLink>
+                      <a href=" ">Terms & Conditions</a>
                     </li>
               </ul>
             </div>

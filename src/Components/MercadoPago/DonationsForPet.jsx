@@ -15,6 +15,8 @@ export default function DonationsForPet({id}) {
         if(id) dispatch(getDetails(id))
     }, [dispatch, id])
 
+    console.log()
+
     return (
             !id ? 
             <>

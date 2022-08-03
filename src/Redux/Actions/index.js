@@ -7,23 +7,36 @@ import {
   FULL_FILTER_SIZE,
   GET_OWNER_ADOPTION,
   GET_USER_ADOPTION,
+  LOGIN_USER,
+  LOGOUT_USER,
   NO_FILTER_PETS,
 } from "./actionTypes";
 
-const SERVER = "https://rebirth-app-backend.herokuapp.com";
+
+const SERVER  = "http://localhost:3001";
 
 export function loginUser(credentials){
   return async function(dispatch) {
     try {
       const json = await axios.post(`${SERVER}/login`, credentials);
+      const dataUser = json.data;
       return dispatch({
-        type : "LOGIN_USER",
-        payload : json.data
+        type : LOGIN_USER,
+        payload : dataUser
       })
     } catch (error) {
       swal("Sorry", "Invalid username or password", "error")
     }
 
+  }
+}
+
+export function logoutUser(){
+  return function(dispatch){
+    return dispatch({
+      type : LOGOUT_USER,
+      payload : null
+    })
   }
 }
 
@@ -36,6 +49,7 @@ export function getOwnerAdoption(id){
         payload: json.data,
       });
     } catch (error) {
+      console.log(error);
       alert("No user found");
     }
   };
@@ -49,6 +63,7 @@ export function getAdopterAdoption(id){
         payload: json.data,
       });
     } catch (error) {
+      console.log(error);
       alert("No user found");
     }
   };
@@ -75,6 +90,7 @@ export function postMercadoPago(donacion){
         let data = await axios.post("http://localhost:3001/donations", donacion)
         return dispatch({type : "MERCADO_PAGO", data})
       } catch (error) {
+        console.log('error', error)
       }
   }
 }
@@ -124,6 +140,7 @@ export function postUserGoogle(payload) {
         
       }
     } catch (error) {
+      console.log('error', error)
     }
   };
 }
@@ -133,6 +150,7 @@ export function updateUser(email, payload) {
     try {
       await axios.put(`${SERVER}/user/${email}`, payload);
     } catch (error) {
+      console.log(error)
     }
   }
 }
@@ -146,6 +164,7 @@ export function deleteUser(id) {
         payload: json.data,
       });
     } catch (error) {
+      console.log(error);
       alert("Could not delete user");
     }
   };
@@ -214,6 +233,7 @@ export function getDetails(id) {
         payload: json.data,
       });
     } catch (error) {
+      console.log(error);
       alert("No pet found");
     }
   };
@@ -228,6 +248,7 @@ export function deletePet(id) {
         payload: json.data,
       });
     } catch (error) {
+      console.log(error);
       alert("Could not delete pet");
     }
   };
@@ -242,6 +263,7 @@ export function getLocation() {
         payload: json.data,
       });
     } catch (error) {
+      console.log(error);
       alert("No location found");
     }
   };

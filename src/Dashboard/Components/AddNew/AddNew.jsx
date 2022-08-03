@@ -198,7 +198,7 @@ function AddNew(){
                                         </div>
 
                                         <div className="addform">
-                                            <label htmlFor ="race">Breed</label>
+                                            <label htmlFor ="race">Race</label>
                                             <input
                                             id="race"
                                             type="text"
