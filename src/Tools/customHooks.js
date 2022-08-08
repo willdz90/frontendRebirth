@@ -28,7 +28,7 @@ async function fetchingData({ page=0, name, type, location, gender , age, size})
     const sizeFilter = !size.length ?  '{%22small%22,%22medium%22,%22big%22}' : passArrayByUrl(size)
     const locationFilter = !location.length ? "" : passArrayByUrl(location)
 
-    const dataTest = await axios.get(`http://localhost:3001/?page=${page}&name=${nameFilter}&type=${typeFilter}&age=${ageFilter}&gender=${genderFilter}&size=${sizeFilter}&location=${locationFilter}`);
+    const dataTest = await axios.get(`https://rebirth-app-backend.herokuapp.com/?page=${page}&name=${nameFilter}&type=${typeFilter}&age=${ageFilter}&gender=${genderFilter}&size=${sizeFilter}&location=${locationFilter}`);
  
     return dataTest;
 }
@@ -47,13 +47,13 @@ function passArrayByUrl(filterArray){
 
 async function fetchingFavorites({mail}){
     console.log('mail :>> ', mail);
-    const  dataFavorites  = await axios.get(`http://localhost:3001/user/Favs/${mail}`)
+    const  dataFavorites  = await axios.get(`https://rebirth-app-backend.herokuapp.com/user/Favs/${mail}`)
     return dataFavorites
 }
 
 async function favoritesPetsDetails({id}){
     console.log('mail :>> ', id);
-    const dataFavorites = await axios.get(`http://localhost:3001/pets/${id}`)
+    const dataFavorites = await axios.get(`https://rebirth-app-backend.herokuapp.com/pets/${id}`)
     console.log('favorites pets :>> ', dataFavorites);
     return dataFavorites
 }
