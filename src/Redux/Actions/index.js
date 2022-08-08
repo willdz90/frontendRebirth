@@ -288,7 +288,7 @@ export function deleteUser(mail) {
 export function postMercadoPago(donacion) {
   return async function (dispatch) {
     try {
-      let data = await axios.post(`${SERVER}/${donacion}`);
+      let data = await axios.post(`${SERVER}/donations`, donacion);
       return dispatch({ type: "MERCADO_PAGO", data });
     } catch (error) {
       console.log("error", error);
