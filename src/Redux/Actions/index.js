@@ -29,7 +29,21 @@ import {
   GET_NAMES
 } from "./actionTypes";
 
-const SERVER = "https://rebirth-app-backend.herokuapp.com";
+const SERVER = "http://localhost:3001";
+
+export function saveFavorites(arrayFavorites){
+  return async function(dispatch){
+    console.log('arrayFavorites :>> ', arrayFavorites);
+    try {
+      return dispatch({
+        type : "SAVE_FAVORITES",
+        payload : arrayFavorites
+      })
+    } catch (error) {
+      return error
+    }
+  }
+}
 
 export function saveName(name){
   return async function(dispatch){
@@ -85,7 +99,7 @@ export function paginateData(json){
         payload : json.data
       })
     } catch (error) {
-      console.log(error)
+      // console.log(error)
     }
   }
 }
@@ -288,7 +302,7 @@ export function deleteUser(mail) {
 export function postMercadoPago(donacion) {
   return async function (dispatch) {
     try {
-      let data = await axios.post(`${SERVER}/donations`, donacion);
+      let data = await axios.post("http://localhost:3001/donations", donacion);
       return dispatch({ type: "MERCADO_PAGO", data });
     } catch (error) {
       console.log("error", error);
@@ -539,6 +553,7 @@ export function deleteFavs(mail, id){
     try {
       let favs = { id: id };
       const json = await axios.put(`${SERVER}/user/deleteFavs/${mail}`, favs);
+      console.log('json :>> ', json);
       return dispatch({
         type: DELETE_FAVORITES,
         payload: json.data,

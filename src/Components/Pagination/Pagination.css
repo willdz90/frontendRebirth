@@ -4,6 +4,7 @@
 }
 
 .pagination {
+  display: inline-block;
   justify-content: center;
   height: fit-content;
   flex-wrap: wrap;
