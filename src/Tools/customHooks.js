@@ -22,7 +22,7 @@ export const useFavoritesPetsDetails = (filters) => {
 }
 
 async function fetchingData({ page=0, name, type, location, gender , age, size}) {
-    const ageFilter = !age ? "All" : age;
+    const ageFilter = !age ? "" : age;
     const nameFilter = !name ? "" : name;
     const typeFilter = !type.length ? '{%22dog%22,%22cat%22}' : passArrayByUrl(type);
     const genderFilter = !gender.length ? '{%22female%22,%22male%22}' : passArrayByUrl(gender);
