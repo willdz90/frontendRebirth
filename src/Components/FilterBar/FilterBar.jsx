@@ -12,9 +12,8 @@ import {
   pruebasDeFiltrado,
   saveName,
 } from "../../Redux/Actions";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import FilterbarSelect from "../FilterBarSelectedButton/FilterBarSelectedButton";
-import { Link, useLocation, useParams } from "react-router-dom";
 
 function FiltersBar({
   filters,
@@ -60,9 +59,8 @@ function FiltersBar({
           title="AGE"
           className="ms-2"
         >
-          <Dropdown.Item eventKey="All">All</Dropdown.Item>
-          <Dropdown.Item eventKey="young">young</Dropdown.Item>
-          <Dropdown.Item eventKey="old">old</Dropdown.Item>
+          <Dropdown.Item eventKey="ASC">young</Dropdown.Item>
+          <Dropdown.Item eventKey="DESC">old</Dropdown.Item>
         </DropdownButton>
 
         <Form className="ms-2 w-50" onSubmit={handleSearchName}>
@@ -73,25 +71,8 @@ function FiltersBar({
               className="formInputStyle"
               autoComplete="off"
               onChange={handleChange}
-              // value={valueName}
             />
           </Form.Group>
-          {/* <Form.Control
-            placeholder="Search by name"
-            aria-label="Search by name"
-            aria-describedby="basic-addon2"
-            onChange={(e) => setSearchName(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleEnter(searchName)}
-            value={searchName}
-          /> */}
-          {/* <Button
-            type="submit"
-            className="btn-pink"
-            disabled={!searchName ? true : false}
-            onClick={(e) => handleSearchName(e)}
-          >
-            <Link to={`/home/name/?name=${searchName}`}> Search </Link>
-          </Button> */}
         </Form>
 
         <DropdownButton
