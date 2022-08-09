@@ -23,7 +23,7 @@ export default function DashFavorites(){
   useEffect(() =>{
     dispatch(getAllPets())
     dispatch(getFavs(user.mail || user.email))
-  }, [])
+  }, [pets])
 
   
   setTimeout(()=> {
@@ -32,6 +32,7 @@ export default function DashFavorites(){
   
   function handleDeleteFav(id){
     dispatch(deleteFavs(mail, id))
+    window.history.go()
   }
 
   return (
