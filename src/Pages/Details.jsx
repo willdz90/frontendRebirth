@@ -1,13 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useParams, NavLink } from "react-router-dom";
+import { Link, useParams } from "react-router-dom"; // warnings-> useLocation  NavLink
 import {
   addFavs,
   deleteFavs,
   getDetails,
-  resetDetails,
   getUserId,
-  postMercadoPago,
-} from "../Redux/Actions/index";
+} from "../Redux/Actions/index"; // warning -> resetDetails, postMercadoPago
 import { useSelector, useDispatch } from "react-redux";
 import Container from "react-bootstrap/Container";
 import Navbar from "../Components/Navbar/Navbar";
@@ -20,26 +19,19 @@ import dogIco from "../Assets/dog_ico_big.png";
 import catIco from "../Assets/ico-cat-gris.png";
 
 function Details() {
-  window.scroll({
-    top: 0,
-  });
   const { id } = useParams();
   const dispatch = useDispatch();
-  const [favFilters, setFavFilters] = useState([]);
+  const [, setFavFilters] = useState([]);
   const favoritos = useSelector((state) => state.favorite);
   let favFilter =
-    favoritos.length > 0 ? favoritos.filter((f) => f == id) : null;
+    favoritos.length > 0 ? favoritos.filter((f) => f === id) : null;
 
-  const pets = useSelector((store) => store.pets);
+  // const pets = useSelector((store) => store.pets); warning
 
-  const types = pets.map((p) => (p.type === "dog" ? "dog" : "cat"));
+  // const types = pets.map((p) => (p.type === "dog" ? "dog" : "cat"));
 
   useEffect(() => {
     setFavFilters(favFilter);
-  }, []);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
   }, []);
 
   const {
@@ -69,7 +61,8 @@ function Details() {
     if (user) {
       dispatch(getUserId(mail));
     }
-  }, [dispatch, id]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function handleFavorite() {
     dispatch(addFavs(mail, id));

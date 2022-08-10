@@ -1,21 +1,11 @@
 import {
-  GET_PETS,
   GET_TYPES,
   GET_DETAILS,
   GET_USER,
   GET_NAMES,
   GET_USER_ID,
-  ORDER_BY_AGE,
-  FILTER_BY_SIZE,
-  FILTER_BY_LOCATION,
   POST_PET,
   POST_USER,
-  FILTER_BY_SEX,
-  FULL_FILTER_AGE,
-  NO_FILTER_PETS,
-  FULL_FILTER_SEX,
-  FULL_FILTER_LOCATION,
-  FULL_FILTER_SIZE,
   MERCADO_PAGO,
   GET_LOCATION,
   LOGIN_USER,
@@ -27,7 +17,6 @@ import {
   FAVORITES,
   DELETE_FAVORITES,
   GET_FAVORITES,
-  GET_ALL_PETS,
   UPDATE_PROFILE,
   RESET_DETAILS,
   RESET_PETS,
@@ -37,7 +26,10 @@ import {
   USER_RESTORE,
   GET_USERNAME,
   MAKE_ADMIN,
-  DELETE_ADOPTION,
+  // DELETE_ADOPTION,
+  DELETE_POST,
+  SAVE_ID,
+  // DELETE_ADOPTION, -> warning
 } from "../Actions/actionTypes";
 
 const initialState = {
@@ -65,7 +57,9 @@ const initialState = {
   userDeleted: [],
   userBanned: [],
   admins: [],
-  favoritesSaved: [],
+  favoritesSaved : [],
+  saveId : "",
+
 };
 
 function rootReducer(state = initialState, action) {
@@ -85,11 +79,20 @@ function rootReducer(state = initialState, action) {
         ...state,
         prueba: action.payload,
       };
-
+    case DELETE_POST: 
+    return{
+      ...state
+    };
     case DELETE_PET:
       return {
         ...state,
       };
+      case SAVE_ID:{
+        return{
+          ...state,
+          saveId : action.payload
+        }
+      }
     case "PRUEBA":
       return {
         ...state,

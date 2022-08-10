@@ -8,7 +8,8 @@ import {
 } from "../../../Redux/Actions/index.js";
 import UserDetail from "../../../Components/UserDetail/UserDetail";
 import SearchUser from "../../../Components/SearchUser/SearchUser";
-
+import NotFound from '../../../Components/NotFound/NotFound'
+import DashNavBar from "../Dash-NavBar/Dash-NavBar";
 export default function DashUsers() {
   const dispatch = useDispatch();
   const allUsers = useSelector((s) => s.user);
@@ -31,16 +32,24 @@ export default function DashUsers() {
 
   return (
     <>
+      <DashNavBar/>
       <div className="mainDashUser">
         <div className="userTitulo">
           <h3>USERS</h3>
         </div>
 
         <SearchUser />
-
-        {users &&
+        {
+          !users.length ? (
+            <div className="notFound-user">
+            <NotFound/>
+            </div>
+          ):
+          <>
+          {users &&
           users.map((u) => (
             <UserDetail
+              key={Math.random()}
               handleAdmin={handleAdmin}
               handleDeleteUser={handleDeleteUser}
               name={u.name}
@@ -51,6 +60,9 @@ export default function DashUsers() {
               isAdmin={u.isAdmin}
             />
           ))}
+          </>
+        }
+        
       </div>
     </>
   );

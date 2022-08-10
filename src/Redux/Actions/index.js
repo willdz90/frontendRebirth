@@ -13,7 +13,7 @@ import {
   LOGOUT_USER,
   NO_FILTER_PETS,
   POST_MESSAGE,
-  PUT_VISTO,
+  // PUT_VISTO, -> warning
   SAVE_ADOPTION_ID,
   FAVORITES,
   DELETE_FAVORITES,
@@ -25,8 +25,13 @@ import {
   USER_RESTORE,
   GET_USERNAME,
   MAKE_ADMIN,
-  POST_SUPPORT_FORM,
-  GET_NAMES
+
+  // POST_SUPPORT_FORM,
+  GET_NAMES, 
+  DELETE_POST,
+  SAVE_ID,
+
+  // POST_SUPPORT_FORM, -> warning
 } from "./actionTypes";
 
 const SERVER = "http://localhost:3001";
@@ -160,7 +165,7 @@ export function putVisto(mail, adoptionId) {
   return async function (dispatch) {
     try {
       console.log(mail, adoptionId);
-      const json = await axios.put(`${SERVER}/message/visto`, {
+      await axios.put(`${SERVER}/message/visto`, {
         mail: mail,
         adoptionId: adoptionId,
       });
@@ -343,7 +348,7 @@ export function postUser(payload) {
 export function deleteAdoption(id) {
   return async function dispatch() {
     try {
-      const json = await axios.patch(`${SERVER}/adoption/${id}`);
+      await axios.patch(`${SERVER}/adoption/${id}`);
       return dispatch({
         type: "DELETE_ADOPTION",
       });
@@ -364,6 +369,20 @@ export function getPets() {
     } catch ({ response }) {
       const { status } = await response;
       if (status === 404) await swal("Oops!", "No pets found", "error");
+    }
+  };
+}
+export function deletePost(id) {
+  return async function (dispatch) {
+    try {
+      const json = await axios.put(`${SERVER}/pets/delete/${id}`);
+      console.log('json', json)
+      return dispatch({
+        type: DELETE_POST,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log('error', error)
     }
   };
 }
@@ -558,6 +577,14 @@ export function deleteFavs(mail, id){
     } catch (error) {
       console.log(error);
     }
+  }
+}
+export function saveId(id){
+  return async function(dispatch){
+    return dispatch({
+      type: SAVE_ID,
+      payload : id
+    })
   }
 }
 
