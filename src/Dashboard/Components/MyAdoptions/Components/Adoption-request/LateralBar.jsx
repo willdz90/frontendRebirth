@@ -30,6 +30,7 @@ export default function LateralBar() {
     <>
       {adoptChat &&
         adoptChat?.map((adChat) => {
+          console.log(adChat)
           return (
             <>
             {
