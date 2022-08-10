@@ -25,16 +25,14 @@ import {
   USER_RESTORE,
   GET_USERNAME,
   MAKE_ADMIN,
-
   // POST_SUPPORT_FORM,
   GET_NAMES, 
   DELETE_POST,
   SAVE_ID,
-
   // POST_SUPPORT_FORM, -> warning
 } from "./actionTypes";
 
-const SERVER = "http://localhost:3001";
+const SERVER = "https://rebirth-app-backend.herokuapp.com";
 
 export function saveFavorites(arrayFavorites){
   return async function(dispatch){
@@ -304,7 +302,7 @@ export function deleteUser(mail) {
 export function postMercadoPago(donacion) {
   return async function (dispatch) {
     try {
-      let data = await axios.post("http://localhost:3001/donations", donacion);
+      let data = await axios.post(`${SERVER}/donations`, donacion);
       return dispatch({ type: "MERCADO_PAGO", data });
     } catch (error) {
       console.log("error", error);
