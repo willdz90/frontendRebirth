@@ -41,6 +41,10 @@ export default function DashFavorites() {
       <DashNavBar />
       <div className="DashcontainerMain">
         <div className="mainDashCont">
+          {/* {
+            isLoading ? null :
+
+          } */}
           {!favoritos ? (
             <div className="noFavsTitle">
               <NotFound />
