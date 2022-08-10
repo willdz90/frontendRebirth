@@ -25,13 +25,14 @@ import UsersBanned from "./Components/UserBanned/UserBanned.jsx"
 import Admins from "./Components/Admins/Admins";
 import FormAdoption from "./Dashboard/Components/MyAdoptions/Components/FormAdoption/FormAdoption";
 import Feedback from "./Dashboard/Components/MyAdoptions/Components/Feedback/Feedback";
+import Testimonials from "./Components/Testimonials/Testimonials";
 
 function App() {
 
   const queryClient = new QueryClient({
     defaultOptions :{
         staleTime : Infinity,
-        cacheTime : 600000
+        cacheTime : 600000000
     }
   });
 
@@ -61,6 +62,7 @@ function App() {
           <Route path="/users/banned" element={<UsersBanned />} />
           <Route path="/admin" element={<Admins />} />
           <Route path="/feedback" element={<Feedback />} />
+          
           {/*
 
             <Route path = '*' element = {<NotFound/>}/> */}

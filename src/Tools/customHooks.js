@@ -1,6 +1,7 @@
 import { useQuery, useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
+
 const { REACT_APP_SERVER } = process.env;
 
 export const useFetchPets = (filters) => {
@@ -45,7 +46,7 @@ async function fetchingData({
   size,
 }) {
   try {
-    const ageFilter = !age ? "" : age;
+    const ageFilter = !age ? [] : age;
     const nameFilter = !name ? "" : name;
     const typeFilter = !type.length
       ? "{%22dog%22,%22cat%22}"
