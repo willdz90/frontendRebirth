@@ -595,7 +595,7 @@ export function getFavs(mail){
         payload: json.data,
       });
     } catch (error) {
-      console.log(error)
+      // console.log(error)
     }
   };
 }
