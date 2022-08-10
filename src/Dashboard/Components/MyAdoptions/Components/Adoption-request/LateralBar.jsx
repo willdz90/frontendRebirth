@@ -15,9 +15,7 @@ export default function LateralBar() {
   const infoStorage = localStorage.getItem("user");
   const user = JSON.parse(infoStorage);
 
-  if(infoStorage) mail = user.mail;
-
-
+  if (infoStorage) mail = user.mail;
 
   useEffect(() => {
     dispatch(getChat(mail));
@@ -30,44 +28,51 @@ export default function LateralBar() {
 
   return (
     <>
-      {adoptChat&&adoptChat?.map((adChat) => {
-        return (
-          <div
-            onClick={() => handleClick(adChat.id)}
-            className="container-lateral-bar"
-          >
-            <div>
-              <div className="avatar-pet-lateral-bar">
-                <div className="avatar-lateral-bar">
-                  <img
-                    // src={
-                    //   adChat.adopter.mail === mail
-                    //     ? adChat.owner.image
-                    //     : adChat.adopter.image
-                    // }
-                    alt="null"
-                  />
+      {adoptChat &&
+        adoptChat?.map((adChat) => {
+          return (
+            <>
+            {
+              adChat&&adChat ?
+              <div
+                onClick={() => handleClick(adChat.id)}
+                className="container-lateral-bar"
+              >
+                <div>
+                  <div className="avatar-pet-lateral-bar">
+                    <div className="avatar-lateral-bar">
+                      <img
+                        src={
+                          adChat.adopter.mail === mail
+                            ? adChat.owner.image
+                            : adChat.adopter.image
+                        }
+                        alt="null"
+                      />
+                    </div>
+                    <div className="pet-lateral-bar">
+                      <img src={adChat.pet.image} alt="" />
+                    </div>
+                  </div>
                 </div>
-                <div className="pet-lateral-bar">
-                  {/* <img src={adChat.pet.image} alt="" /> */}
+                <div className="name-adoption-text-lb">
+                  <div className="name-lateral-bar">
+                    {" "}
+                  {adChat.userMail === mail
+                    ? adChat.owner.name
+                    : adChat.adopter.name}
+                  </div>
+                  <div className="adoption-lateral-bar">
+                    {adChat.id}
+                    <br />
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="name-adoption-text-lb">
-              <div className="name-lateral-bar">
-                {/* {" "}
-                {adChat.userMail === mail
-                  ? adChat.owner.name
-                  : adChat.adopter.name} */}
-              </div>
-              <div className="adoption-lateral-bar">
-                {adChat.id}
-                <br />
-              </div>
-            </div>
-          </div>
-        );
-      })}
+              </div> :
+              null
+            }
+            </>
+          );
+        })}
     </>
   );
 }
