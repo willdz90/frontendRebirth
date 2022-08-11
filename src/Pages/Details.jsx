@@ -65,7 +65,7 @@ function Details() {
   useEffect(()=>{
     setTimeout(() => {
       setCargando(false)
-    }, 1000);
+    }, 500);
   })
 
   function handleFavorite() {
