@@ -62,6 +62,12 @@ function Details() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(()=>{
+    setTimeout(() => {
+      setCargando(false)
+    }, 1000);
+  })
+
   function handleFavorite() {
     dispatch(addFavs(mail, id));
   }
