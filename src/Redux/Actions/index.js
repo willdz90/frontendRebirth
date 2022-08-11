@@ -33,11 +33,30 @@ import {
   NOTIFICATION,
   DELETE_POST,
   SAVE_ID,
+  FUL_ADOPTION,
+  ADOTION_HISTORY_ADMIN
+
 
   // POST_SUPPORT_FORM, -> warning
 } from "./actionTypes";
 
 const { REACT_APP_SERVER }  = process.env;
+
+export function getTestimonials(){
+  return async function(dispatch){
+    try {
+      const data = await axios(`${REACT_APP_SERVER}/successstories`)
+      return dispatch({
+        type:'GET_TESTIMONIALS',
+        payload: data
+      })
+    } catch (error) {
+      return error
+    }
+  }
+}
+
+
 
 export function saveFavorites(arrayFavorites) {
   return async function (dispatch) {
@@ -139,7 +158,7 @@ export function paginateData(json) {
         payload: json.data,
       });
     } catch (error) {
-      // console.log(error)
+      // return error
     }
   };
 }
@@ -179,11 +198,13 @@ export function getMessage(adoptionId) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
-      alert("No user found");
+      return error;
     }
   };
 }
+
+
+
 export function getChat(user) {
   return async function (dispatch) {
     try {
@@ -193,11 +214,20 @@ export function getChat(user) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
-      alert("No user found");
+      return error
     }
   };
 }
+
+export async function successAdoption(id) {
+     try {
+      await axios.patch(`${REACT_APP_SERVER}/adoption/success/${id}`);
+     
+    } catch (error) {
+      return error;
+    }
+ }
+
 
 export function putVisto(mail, adoptionId) {
   return async function (dispatch) {
@@ -219,8 +249,8 @@ export function postMessage(payload) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
-      alert("No user found");
+      return error;
+      
     }
   };
 }
@@ -251,8 +281,8 @@ export function getOwnerAdoption(id) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
-      alert("No user found");
+      return error;
+      
     }
   };
 }
@@ -266,8 +296,8 @@ export function getAdopterAdoption(id) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
-      alert("No user found");
+      return error;
+      
     }
   };
 }
@@ -330,8 +360,7 @@ export function deleteUser(mail) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
-      alert("Could not delete user");
+      return error;
     }
   };
 }
@@ -342,7 +371,7 @@ export function postMercadoPago(donacion) {
       let data = await axios.post(`${REACT_APP_SERVER}/donations`, donacion);
       return dispatch({ type: "MERCADO_PAGO", data });
     } catch (error) {
-      console.log("error", error);
+      return error
     }
   };
 }
@@ -387,7 +416,7 @@ export function deleteAdoption(id) {
         type: "DELETE_ADOPTION",
       });
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
 }
@@ -416,7 +445,7 @@ export function deletePost(id) {
         payload: json.data,
       });
     } catch (error) {
-      console.log("error", error);
+      return error
     }
   };
 }
@@ -446,16 +475,16 @@ export function getPetFilters(type) {
 export function getPetNames(searchName) {
   return async function (dispatch) {
     try {
-      console.log('pathSearchName :>> ', searchName);
+      
       const { data } = await axios.get(`${REACT_APP_SERVER}/?name=${searchName}`)
-      console.log('data :>> ', data);
+      
 
       return dispatch({
         type: GET_NAMES,
         payload: data,
       });
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
 }
@@ -465,7 +494,7 @@ export function postPet(payload) {
     try {
       await axios.post(`${REACT_APP_SERVER}/pets`, payload);
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
 }
@@ -479,8 +508,8 @@ export function getDetails(id) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
-      alert("No pet found");
+      return error;
+      
     }
   };
 }
@@ -489,15 +518,12 @@ export function deletePet(id) {
   return async function (dispatch) {
     try {
       const json = await axios.delete(`${REACT_APP_SERVER}/pets/${id}`);
-      console.log('json', json)
-
       return dispatch({
         type: DELETE_PET,
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
-      alert("Could not delete pet");
+      return error;
     }
   };
 }
@@ -514,8 +540,8 @@ export function getLocation(type) {
         payload: data.result,
       });
     } catch (error) {
-      console.log(error);
-      alert("No location found");
+      return error;
+     
     }
   };
 }
@@ -596,7 +622,7 @@ export function addFavs(mail, id) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
 }
@@ -612,7 +638,7 @@ export function deleteFavs(mail, id) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
 }
@@ -634,7 +660,7 @@ export function getFavs(mail) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
 }
@@ -685,14 +711,12 @@ export function makeAdmin(mail) {
   return async function (dispatch) {
     try {
       const json = await axios.put(`${REACT_APP_SERVER}/user/adm/${mail}`);
-      console.log('json', json)
-
-      return dispatch({
+        return dispatch({
         type: MAKE_ADMIN,
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
 }
@@ -703,7 +727,6 @@ export function postSupportForm(payload) {
       const json = await axios.post(`${REACT_APP_SERVER}/nodeMailer`, payload);
       if (json.status === 200) swal("OK", "Mail sent successfully", "success");
     } catch (error) {
-      console.log(`Error enviando correo ${error}`);
       swal("Oops!", "Error sending the mail", "error");
     }
   };
@@ -716,8 +739,21 @@ export function postAdoption(payload) {
       if (json.status === 201)
         await swal("OK", "Adoption request created", "success");
     } catch (error) {
-      console.log(`Error creando ${error}`);
       await swal("Oops!", "Error creating the Adoption request", "error");
+    }
+  };
+}
+
+export function adoptinHistoryAdmin() {
+  return async function (dispatch) {
+    try {
+      const json = await axios.get(`${REACT_APP_SERVER}/pets/inactivo`);
+      return dispatch({
+        type: ADOTION_HISTORY_ADMIN,
+        payload: json.data,
+      });
+    } catch (error) {
+     return error
     }
   };
 }
@@ -727,25 +763,20 @@ export function updatePetsViews(id) {
     try {
       await axios.patch(`${REACT_APP_SERVER}/pets/${id}`);
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
 }
 
-export function successStory(
-  nameOfPet,
-  imageOfPet,
-  rating,
-  testimonio,
-  userId
-) {
+export function successStory(payload) {
+  
   return async (dispatch) => {
     try {
-      let payload = { nameOfPet, imageOfPet, rating, testimonio, userId };
-      const json = await axios.post(`${REACT_APP_SERVER}/successStories`, payload);
+
+      const json = await axios.post(`${REACT_APP_SERVER}/successstories`, payload);
+
       if (json.status === 201) await swal("Thank You", "", "success");
     } catch (error) {
-      console.log(`Error creando ${error}`);
       await swal("Oops!", "Error in the Adoption request", "error");
     }
   };
@@ -760,7 +791,7 @@ export function getSuccessStory() {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
+      return error;
     }
   };
 }

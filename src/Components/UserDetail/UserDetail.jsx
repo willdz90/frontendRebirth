@@ -29,9 +29,11 @@ function UserDetail({
       <div>
         {window.location.pathname === "/users/banned" ? (
           <div>
-            <button onClick={handleRestoreUser} id={mail}>
-              restore
-            </button>
+            <button
+              onClick={handleRestoreUser}
+              id={mail}
+              className="BtnRestore"
+            ></button>
           </div>
         ) : window.location.pathname === "/admin" ? null : (
           <div>
@@ -46,13 +48,19 @@ function UserDetail({
       <div>
         {user && user.userName === rebirthApp ? (
           window.location.pathname === "/users" ? (
-            <button onClick={handleAdmin} id={mail}>
-              hacer admin
-            </button>
+            <div>
+              <button
+                onClick={handleAdmin}
+                id={mail}
+                className="BtnAddAdmin"
+              ></button>
+            </div>
           ) : window.location.pathname === "/users/banned" ? null : (
-            <button onClick={handleDeleteAdmin} id={mail}>
-              delete admin
-            </button>
+            <button
+              onClick={handleDeleteAdmin}
+              id={mail}
+              className="BtnDelAdmin"
+            ></button>
           )
         ) : null}
       </div>

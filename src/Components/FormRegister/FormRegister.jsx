@@ -42,11 +42,6 @@ export default function FormRegister() {
   };
 
 
-  // const onChange = (e) => {
-  //   console.log();
-  // };
-
-
   return (
     <div className="formContainer">
       <div className="formRegister">

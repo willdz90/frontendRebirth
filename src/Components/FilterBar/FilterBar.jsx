@@ -8,6 +8,7 @@ import FilterbarSelect from "../FilterBarSelectedButton/FilterBarSelectedButton"
 import Button from "react-bootstrap/esm/Button";
 
 function FiltersBar({
+  name,
   filters,
   setFilters,
   handleFilterBySex,
@@ -69,6 +70,7 @@ function FiltersBar({
                   placeholder="Search by name"
                   className="formInputStyle"
                   autoComplete="off"
+                  value={name}
                   onChange={handleChange}
                 />
               </Form.Group>
@@ -107,10 +109,10 @@ function FiltersBar({
           </div>
           <div className="col-md-auto">
             <Button className="btn-pink" onClick={handleDeleteFilters}>
-              Borrar filtros
+              Clear
             </Button>
           </div>
-          <div className="col col-lg-2">
+          <div className="row mt-3 mb-3">
             <FilterbarSelect filters={filters} setFilters={setFilters} />
           </div>
         </div>

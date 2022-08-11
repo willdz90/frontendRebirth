@@ -59,9 +59,6 @@ function Home() {
   const [ pathSearchName, setPathSearchName ] = useState(search);
   // const [ searchName, setSearchName ] = useState(pathSearchName + `&name=${name}`);
 
-  console.log('Pathsearch :>> ', pathSearchName);
-  console.log('Search Name :>>>> ', searchName);
-
   useEffect(() => {
     setPathSearchName(search)
   }, [search])
@@ -126,7 +123,6 @@ function Home() {
   function handleSearchName(e){
     e.preventDefault();
     navigate(`/home/name/?name=${searchName}`)
-    console.log('searchName :>> ', searchName);
     dispatch(getPetNames(searchName))
     // setPathSearchName(searchName)
   }
@@ -139,7 +135,6 @@ function Home() {
   
   if (page > 1) previousPage = page - 1;
 
-  console.log('petType :>> ', petType);
 
   let pageUrl;
   let nextPageUrl;
@@ -151,9 +146,6 @@ function Home() {
     previousPageUrl = `&page=${page-1}`;
     // setPathSearchName(pageUrl);
   }
-  console.log('previousPageUrl :>> ', previousPageUrl);
-  console.log('pageUrl :>> ', pageUrl);
-  console.log('nextPageUrl :>> ', nextPageUrl);
 
   return (
     <div>
