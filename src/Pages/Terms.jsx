@@ -6,13 +6,14 @@ import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import "../Components/Terms/Terms.css";
+import Header2 from "../Components/HeaderBan/Header2";
 
 function Terms() {
   return (
     <>
       <Navbar />
       <Container>
-        <Header />
+        <Header2 />
         <Row>
           <Col>
             <div className="terms-container">

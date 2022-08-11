@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
+import Header2 from "../Components/HeaderBan/Header2";
 import "../Components/About/About.css";
 // import { Link } from "react-router-dom";
 import enzo from "../Assets/enzo.png";
@@ -43,7 +44,7 @@ function About() {
     <>
       <Navbar />
       <Container>
-        <Header />
+        <Header2/>
         <Row>
           <Col>
             <div className="about-container">

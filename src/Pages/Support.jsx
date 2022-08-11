@@ -6,13 +6,14 @@ import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import SupportForm from "../Components/Support/Support_form";
+import Header2 from "../Components/HeaderBan/Header2";
 
 function Support() {
   return (
     <>
       <Navbar />
       <Container>
-        <Header />
+        <Header2 />
         <Row>
           <Col>
             <SupportForm />

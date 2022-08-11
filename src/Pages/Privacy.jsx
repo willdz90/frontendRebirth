@@ -6,13 +6,15 @@ import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import "../Components/Privacy/Privacy.css";
+import Header2 from "../Components/Header/Header";
+
 
 function Privacy() {
   return (
     <>
       <Navbar />
       <Container>
-        <Header />
+        <Header2 />
         <Row>
           <Col>
             <div className="privacy-container">
