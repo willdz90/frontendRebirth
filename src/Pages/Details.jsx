@@ -26,10 +26,6 @@ function Details() {
   let favFilter =
     favoritos.length > 0 ? favoritos.filter((f) => f === id) : null;
 
-  // const pets = useSelector((store) => store.pets); warning
-
-  // const types = pets.map((p) => (p.type === "dog" ? "dog" : "cat"));
-
   useEffect(() => {
     setFavFilters(favFilter);
   }, []);
@@ -84,9 +80,6 @@ function Details() {
         <br />
         <div className="dtl-card">
           <div className="dtl-cardLeft">
-            {/* <button>
-            <Link to={"/home?type=" + types[0]} className="link-navbar"/>
-            </button> */}
             <h3 className="title">{name}</h3>
             <h4 className="breed">{race}</h4>
             <h5 className="age">{age}&nbsp;years</h5>
@@ -156,8 +149,10 @@ function Details() {
                   </>
                 ) : (
                   <>
-                    {" "}
+                  {
+                    !user ? null : 
                     <button className="a-btnFav" onClick={handleFavorite} />
+                  }
                   </>
                 )}
               </div>
