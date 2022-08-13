@@ -47,7 +47,7 @@ export default function DashFavorites() {
       <DashNavBar />
       <div className="DashcontainerMain">
         {
-          cargando ? <ProgressBar animated now={45} className="loader"/> :
+          cargando ? <ProgressBar animated now={45}/> :
           favoritos&&favoritos.length===0 ? null :
           <div className="mainDashCont">
             {isLoading ? (
