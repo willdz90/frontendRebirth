@@ -48,7 +48,7 @@ export default function DashFavorites() {
       <DashNavBar />
       <div className="DashcontainerMain">
         {
-          cargando ? <Spinner animation="grow" /> :
+          cargando ? <Spinner animation="grow" className="loader"/> :
           favoritos&&favoritos.length===0 ? null :
           <div className="mainDashCont">
             {isLoading ? (
