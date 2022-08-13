@@ -39,9 +39,9 @@ export default function DashFavorites() {
     window.history.go();
   }
 
-  // setTimeout(() => {
-  //   setCargando(false)
-  // },1500)
+  setTimeout(() => {
+    setCargando(false)
+  },1500)
 
   return (
     <>

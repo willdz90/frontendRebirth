@@ -39,7 +39,11 @@
 }
 
 .loader {
-  margin-top: 7rem;
+  margin-top: 8rem;
+  height: 10rem;
+  width: 10rem;
+  color: var(--text-color);
+  font-weight: 200;
 }
 
 .noFavsTitle {
