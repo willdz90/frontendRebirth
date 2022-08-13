@@ -40,7 +40,7 @@ body {
 body.light {
   --border: var(--grey2);
   --text-color-bw: var(--black);
-  --text-color: var(--greylight);
+  --text-color: var(--grey);
   --text-color-comments: var(--white);
   --text-color-sec: var(--white);
   --text-color-pag: var(--white);
