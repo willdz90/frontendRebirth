@@ -17,6 +17,7 @@ export default function DashFavorites() {
   const user = JSON.parse(infoUser);
   const dispatch = useDispatch();
 
+
   const mail = user.mail;
 
   const [filters, setFilters] = useState({ mail: mail });
