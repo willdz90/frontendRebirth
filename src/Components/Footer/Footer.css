@@ -155,7 +155,7 @@ footer .form-control {
 }
 
 .lower {
-  border-top: 1px solid var(--text-color);
+  border-top: 1px solid var(--text-color-sec);
   margin-left: 50px;
   margin-right: 50px;
 }
