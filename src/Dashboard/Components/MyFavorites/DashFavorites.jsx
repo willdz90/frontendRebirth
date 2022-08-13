@@ -38,7 +38,7 @@ export default function DashFavorites() {
 
   setTimeout(() => {
     setCargando(false)
-  },500)
+  },1500)
 
   return (
     <>
