@@ -58,7 +58,7 @@ footer {
 
 footer a {
 
-  color: var(--text-color);
+  color: var(--text-color-sec);
   text-decoration: none;
   height: 0rem;
 }
