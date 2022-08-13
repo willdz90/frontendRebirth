@@ -22,8 +22,8 @@ const DashNavBar = () => {
   const logOut = async (e) => {
     e.preventDefault();
     await swal({
-      title: "You are about to logout",
-      text: "Are you sure wanna go out?",
+      title: "You are about to ",
+      text: "Are you sure?",
       icon: "warning",
       buttons: true,
       dangerMode: true,

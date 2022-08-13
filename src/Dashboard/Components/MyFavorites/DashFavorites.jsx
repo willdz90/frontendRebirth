@@ -45,6 +45,7 @@ export default function DashFavorites() {
       <DashNavBar />
       <div className="DashcontainerMain">
         {
+          cargando ? null :
           favoritos&&favoritos.length===0 ? null :
           <div className="mainDashCont">
             {isLoading ? (
