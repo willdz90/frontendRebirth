@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import DashNavBar from "../Dash-NavBar/Dash-NavBar";
 //import Navbar from "../../../Components/Navbar/Navbar";
 import NotFound from "../../../Components/NotFound/NotFound";
-
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 export default function DashFavorites() {
   const infoUser = localStorage.getItem("user");
