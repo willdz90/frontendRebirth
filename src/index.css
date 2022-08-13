@@ -58,7 +58,7 @@ body.dark {
   --border: var(--grey2);
   --text-color-bw: var(--white );
   --text-color: var(--white);
-  --text-color-sec: var(--greylight);
+  --text-color-sec: var(--grey);
   --text-color-comments: var(--dark--grey);
   --text-color-pag: var(--white);
   --background: var(--grey);

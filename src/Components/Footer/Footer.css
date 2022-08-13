@@ -25,7 +25,7 @@ html {
 footer {
   padding-top: 25px;
   background-color: var(--backgroundFooter);
-  color: var(--text-color);
+  color: var(--text-color-sec);
 }
 
 .img-link-footer{
