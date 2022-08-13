@@ -75,9 +75,9 @@ function Login() {
                       <div className="form-group">
                         <label htmlFor="password">
                           Password
-                          <a href=" " className="alignRightLogin">
+                          {/* <a href=" " className="alignRightLogin">
                             Forgot Password?
-                          </a>
+                          </a> */}
                           <span>{!password ? tab+"required" : null}</span>
                         </label>
                         <input

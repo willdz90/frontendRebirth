@@ -34,11 +34,11 @@ export default function MercadoPago() {
           }} >
             <DonationsForPet id={id}/>
             <div className="incommingDonation" >
-            <h5>Ammount of your donation:</h5>
+            <h5>Amount of your donation:</h5>
               <input autoFocus autoComplete="off" type="text" id="donacion" name="donacion" onChange= {(e) => {handleChange(e)}} value={donacion.donacion} className="form-control"/>
             </div>
             <div className="btnContainer">
-              <button type="submit" disabled={donacion.donacion < 1 ? true : false} className="btn btn-primary btnDonations-block"> I WANNA DONATE </button>
+              <button type="submit" disabled={donacion.donacion < 1 ? true : false} className="btn btn-primary btnDonations-block"> DONATE </button>
             </div>
           </form>
         </div>

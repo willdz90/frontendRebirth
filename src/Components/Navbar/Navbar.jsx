@@ -52,7 +52,7 @@ function Navbar({ filters, setFilters, notificacion,newNotification }) {
     e.preventDefault();
     await swal({
       title: "You are about to logout",
-      text: "Are you sure wanna go out?",
+      text: "Are you sure?",
       icon: "warning",
       buttons: true,
       dangerMode: true,
