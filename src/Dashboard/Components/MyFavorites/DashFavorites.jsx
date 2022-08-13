@@ -10,7 +10,8 @@ import { Link } from "react-router-dom";
 import DashNavBar from "../Dash-NavBar/Dash-NavBar";
 //import Navbar from "../../../Components/Navbar/Navbar";
 import NotFound from "../../../Components/NotFound/NotFound";
-import ProgressBar from 'react-bootstrap/ProgressBar';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 export default function DashFavorites() {
   const infoUser = localStorage.getItem("user");
@@ -47,7 +48,7 @@ export default function DashFavorites() {
       <DashNavBar />
       <div className="DashcontainerMain">
         {
-          cargando ? <ProgressBar animated now={45}/> :
+          cargando ? <Spinner animation="grow" /> :
           favoritos&&favoritos.length===0 ? null :
           <div className="mainDashCont">
             {isLoading ? (
