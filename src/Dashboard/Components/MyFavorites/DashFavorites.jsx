@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import DashNavBar from "../Dash-NavBar/Dash-NavBar";
 //import Navbar from "../../../Components/Navbar/Navbar";
 import NotFound from "../../../Components/NotFound/NotFound";
-import Spinner from 'react-bootstrap/Spinner';
+
 
 export default function DashFavorites() {
   const infoUser = localStorage.getItem("user");
@@ -37,16 +37,16 @@ export default function DashFavorites() {
     window.history.go();
   }
 
-  setTimeout(() => {
-    setCargando(false)
-  },1500)
+  // setTimeout(() => {
+  //   setCargando(false)
+  // },1500)
 
   return (
     <>
       <DashNavBar />
       <div className="DashcontainerMain">
         {
-          cargando ? <Spinner animation="border" variant="primary" /> :
+          cargando ? <ProgressBar animated now={45} className="loader"/> :
           favoritos&&favoritos.length===0 ? null :
           <div className="mainDashCont">
             {isLoading ? (

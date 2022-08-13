@@ -38,6 +38,10 @@
   min-height: 22rem;
 }
 
+.loader {
+  margin-top: 7rem;
+}
+
 .noFavsTitle {
   color: var(--text-color);
   /* margin: 10.5rem 0 0rem 0; */
